@@ -30,6 +30,7 @@ describe('sv-node generator', function () {
       'README.md',
       'travis.yml',
       'LICENSE',
+      'index.js',
       'lib/superapp.js',
       'test/.jshintrc',
       'test/mocha.opts',
@@ -37,7 +38,7 @@ describe('sv-node generator', function () {
       'test/specs/fixtures',
     ];
 
-    helpers.stub(this.app, 'userInfo', function() {
+    helpers.stub(this.app, 'userInfo', function () {
       this.realname = 'a_test_user';
       this.email = 'a_test_user@mail.me';
       this.githubUrl = 'https://github.com/yeoman/a_project';

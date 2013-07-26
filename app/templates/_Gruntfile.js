@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       test: {
         options: {
           jshintrc: 'test/.jshintrc'
-        },        
+        },
         src: ['test/**/*.js']
       }
     },
@@ -49,8 +49,8 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-simple-mocha'); 
-  grunt.renameTask('simplemocha', 'mocha'); 
+  grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.renameTask('simplemocha', 'mocha');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 

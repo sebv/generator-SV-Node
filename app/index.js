@@ -1,4 +1,5 @@
 'use strict';
+
 var util = require('util');
 var path = require('path');
 var _ = require('underscore');
@@ -19,10 +20,10 @@ var githubUserInfo = function (name, cb) {
   }, function (err, res) {
     if (err) { return cb(err); }
     cb(null, JSON.parse(JSON.stringify(res)));
-  });    
+  });
 };
 
-var SvNodeGenerator = module.exports = function SvNodeGenerator(args, options, config) {
+var SvNodeGenerator = module.exports = function SvNodeGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -43,19 +44,19 @@ SvNodeGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
-      name: 'githubUser',
-      message: 'Would you mind telling me your username on Github?',
-      default: 'someuser'
-    }, {
-      name: 'appName',
-      message: 'What\'s the app name?',
-      default: this.appname
-    }
+    name: 'githubUser',
+    message: 'Would you mind telling me your username on Github?',
+    default: 'someuser'
+  }, {
+    name: 'appName',
+    message: 'What\'s the app name?',
+    default: this.appname
+  }
   ];
 
   this.prompt(prompts, function (props) {
     this.githubUser = props.githubUser;
-    this.appName = props.appName;
+    this.appname = props.appName;
     done();
   }.bind(this));
 };
@@ -63,7 +64,7 @@ SvNodeGenerator.prototype.askFor = function askFor() {
 SvNodeGenerator.prototype.userInfo = function userInfo() {
   var done = this.async();
   githubUserInfo(this.githubUser, function (err, res) {
-    if(err) { throw new Error(err); }
+    if (err) { throw new Error(err); }
     /*jshint camelcase:false */
     this.realname = res.name;
     this.email = res.email;
@@ -105,11 +106,14 @@ SvNodeGenerator.prototype.License = function Readme() {
   this.template('_LICENSE', 'LICENSE');
 };
 
-SvNodeGenerator.prototype.Lib = function lib() {
+SvNodeGenerator.prototype.Lib = function Lib() {
   this.mkdir('lib');
-  this.copy('lib/app.js', 'lib/' + _.slugify(this.appName) + '.js');
+  this.copy('lib/app.js', 'lib/' + _.slugify(this.appname) + '.js');
 };
 
+SvNodeGenerator.prototype.Index = function Index() {
+  this.template('_index._js', 'index.js');
+};
 
 SvNodeGenerator.prototype.Test = function test() {
   this.mkdir('test');
@@ -117,5 +121,5 @@ SvNodeGenerator.prototype.Test = function test() {
   this.mkdir('test/specs/fixtures');
   this.copy('test/_jshintrc', 'test/.jshintrc');
   this.copy('test/_mocha.opts', 'test/mocha.opts');
-  this.copy('test/specs/app-tests.js', 'test/specs/' + _.slugify(this.appName) + '-tests.js');
+  this.copy('test/specs/app-tests._js', 'test/specs/' + _.slugify(this.appname) + '-tests.js');
 };

@@ -1,5 +1,5 @@
 'use strict';
 
-exports.doSomething = function(cb) {
+exports.doSomething = function (cb) {
   cb(null);
 };
