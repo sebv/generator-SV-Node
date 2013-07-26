@@ -4,7 +4,7 @@ var should = require('should');
 
 var app = require('../../index');
 
-describe('<%= appName %> tests', function () {
+describe( '<%= appname %> tests', function () {
 
   it('should work', function (done) {
     app.doSomething(function (err) {

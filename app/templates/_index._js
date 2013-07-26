@@ -1,1 +1,1 @@
-module.exports = require('lib/<%= _.slugify(this.appname) %>');
+module.exports = require('./lib/<%= _.slugify(appname) %>');
