@@ -6,7 +6,6 @@ var _ = require('underscore');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
-
 var yeoman = require('yeoman-generator');
 
 var GitHubApi = require('github');
@@ -95,7 +94,7 @@ SvNodeGenerator.prototype.editorConfig = function editorConfig() {
 };
 
 SvNodeGenerator.prototype.Readme = function Readme() {
-  this.copy('_README.md', 'README.md');
+  this.template('_README.md', 'README.md');
 };
 
 SvNodeGenerator.prototype.Travis = function Readme() {

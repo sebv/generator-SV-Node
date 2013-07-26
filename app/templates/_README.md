@@ -1,14 +1,9 @@
-# zip [![Build Status](https://secure.travis-ci.org//zip.png?branch=master)](http://travis-ci.org//zip)
+# <%= appname %>
 
 The best module ever.
 
 ## Getting Started
-Install the module with: `npm install zip`
-
-```javascript
-var zip = require('zip');
-zip.awesome(); // "awesome"
-```
+Install the module with: `npm install <%= _.slugify(appname) %>`
 
 ## Documentation
 _(Coming soon)_
@@ -23,4 +18,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 _(Nothing yet)_
 
 ## License
-Copyright (c) 2013 . Licensed under the MIT license.
+Copyright (c) <%= currentYear %> <%= realname %> Licensed under the MIT license.

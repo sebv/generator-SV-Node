@@ -4,14 +4,14 @@
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
 
-describe('sv-node generator', function () {
+describe('SV-Node generator', function () {
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {
         return done(err);
       }
 
-      this.app = helpers.createGenerator('sv-node:app', [
+      this.app = helpers.createGenerator('SV-Node:app', [
         '../../app'
       ]);
       done();
