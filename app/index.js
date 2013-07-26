@@ -30,7 +30,11 @@ var SvNodeGenerator = module.exports = function SvNodeGenerator(args, options) {
   this.currentYear = (new Date()).getFullYear();
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    
+    this.installDependencies({
+      bower: false,
+      skipInstall: options['skip-install']
+    });
   });
 };
 
