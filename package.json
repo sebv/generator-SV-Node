@@ -1,12 +1,12 @@
 {
-  "name": "generator-sv-node",
+  "name": "generator-SV-Node",
   "version": "0.0.0",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/sebv/generator-sv-node",
-  "bugs": "https://github.com/sebv/generator-sv-node/issues",
+  "homepage": "https://github.com/sebv/generator-SV-Node",
+  "bugs": "https://github.com/sebv/generator-SV-Node/issues",
   "author": {
     "name": "seb vincent",
     "email": "seb.vincent@gmail.com",
@@ -15,7 +15,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/sebv/generator-sv-node.git"
+    "url": "git://github.com/sebv/generator-SV-Node.git"
   },
   "scripts": {
     "test": "mocha"
